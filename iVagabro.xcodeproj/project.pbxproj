@@ -1,0 +1,309 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0167AEC814436AFA00C5E882 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0167AEC714436AFA00C5E882 /* UIKit.framework */; };
+		0167AECA14436AFA00C5E882 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0167AEC914436AFA00C5E882 /* Foundation.framework */; };
+		0167AECC14436AFA00C5E882 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0167AECB14436AFA00C5E882 /* CoreGraphics.framework */; };
+		0167AED214436AFA00C5E882 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0167AED014436AFA00C5E882 /* InfoPlist.strings */; };
+		0167AED414436AFA00C5E882 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167AED314436AFA00C5E882 /* main.m */; };
+		0167AED814436AFA00C5E882 /* iVagabroAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167AED714436AFA00C5E882 /* iVagabroAppDelegate.m */; };
+		0167AEDB14436AFA00C5E882 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0167AED914436AFA00C5E882 /* MainWindow.xib */; };
+		0167AEDE14436AFA00C5E882 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167AEDD14436AFA00C5E882 /* FirstViewController.m */; };
+		0167AEE114436AFA00C5E882 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0167AEE014436AFA00C5E882 /* SecondViewController.m */; };
+		0167AEE414436AFA00C5E882 /* FirstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0167AEE214436AFA00C5E882 /* FirstView.xib */; };
+		0167AEE714436AFA00C5E882 /* SecondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0167AEE514436AFA00C5E882 /* SecondView.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0167AEC314436AFA00C5E882 /* iVagabro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iVagabro.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0167AEC714436AFA00C5E882 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		0167AEC914436AFA00C5E882 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		0167AECB14436AFA00C5E882 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		0167AECF14436AFA00C5E882 /* iVagabro-Info.plist */ = {isa = PBXFileReference; path = "iVagabro-Info.plist"; sourceTree = "<group>"; };
+		0167AED114436AFA00C5E882 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0167AED314436AFA00C5E882 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0167AED514436AFA00C5E882 /* iVagabro-Prefix.pch */ = {isa = PBXFileReference; path = "iVagabro-Prefix.pch"; sourceTree = "<group>"; };
+		0167AED614436AFA00C5E882 /* iVagabroAppDelegate.h */ = {isa = PBXFileReference; path = iVagabroAppDelegate.h; sourceTree = "<group>"; };
+		0167AED714436AFA00C5E882 /* iVagabroAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iVagabroAppDelegate.m; sourceTree = "<group>"; };
+		0167AEDA14436AFA00C5E882 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		0167AEDC14436AFA00C5E882 /* FirstViewController.h */ = {isa = PBXFileReference; path = FirstViewController.h; sourceTree = "<group>"; };
+		0167AEDD14436AFA00C5E882 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		0167AEDF14436AFA00C5E882 /* SecondViewController.h */ = {isa = PBXFileReference; path = SecondViewController.h; sourceTree = "<group>"; };
+		0167AEE014436AFA00C5E882 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		0167AEE314436AFA00C5E882 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstView.xib; sourceTree = "<group>"; };
+		0167AEE614436AFA00C5E882 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondView.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0167AEC014436AFA00C5E882 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0167AEC814436AFA00C5E882 /* UIKit.framework in Frameworks */,
+				0167AECA14436AFA00C5E882 /* Foundation.framework in Frameworks */,
+				0167AECC14436AFA00C5E882 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0167AEB814436AF900C5E882 = {
+			isa = PBXGroup;
+			children = (
+				0167AECD14436AFA00C5E882 /* iVagabro */,
+				0167AEC614436AFA00C5E882 /* Frameworks */,
+				0167AEC414436AFA00C5E882 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0167AEC414436AFA00C5E882 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0167AEC314436AFA00C5E882 /* iVagabro.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0167AEC614436AFA00C5E882 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0167AEC714436AFA00C5E882 /* UIKit.framework */,
+				0167AEC914436AFA00C5E882 /* Foundation.framework */,
+				0167AECB14436AFA00C5E882 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0167AECD14436AFA00C5E882 /* iVagabro */ = {
+			isa = PBXGroup;
+			children = (
+				0167AED614436AFA00C5E882 /* iVagabroAppDelegate.h */,
+				0167AED714436AFA00C5E882 /* iVagabroAppDelegate.m */,
+				0167AED914436AFA00C5E882 /* MainWindow.xib */,
+				0167AEDC14436AFA00C5E882 /* FirstViewController.h */,
+				0167AEDD14436AFA00C5E882 /* FirstViewController.m */,
+				0167AEDF14436AFA00C5E882 /* SecondViewController.h */,
+				0167AEE014436AFA00C5E882 /* SecondViewController.m */,
+				0167AEE214436AFA00C5E882 /* FirstView.xib */,
+				0167AEE514436AFA00C5E882 /* SecondView.xib */,
+				0167AECE14436AFA00C5E882 /* Supporting Files */,
+			);
+			path = iVagabro;
+			sourceTree = "<group>";
+		};
+		0167AECE14436AFA00C5E882 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0167AECF14436AFA00C5E882 /* iVagabro-Info.plist */,
+				0167AED014436AFA00C5E882 /* InfoPlist.strings */,
+				0167AED314436AFA00C5E882 /* main.m */,
+				0167AED514436AFA00C5E882 /* iVagabro-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0167AEC214436AFA00C5E882 /* iVagabro */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0167AEEA14436AFA00C5E882 /* Build configuration list for PBXNativeTarget "iVagabro" */;
+			buildPhases = (
+				0167AEBF14436AFA00C5E882 /* Sources */,
+				0167AEC014436AFA00C5E882 /* Frameworks */,
+				0167AEC114436AFA00C5E882 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iVagabro;
+			productName = iVagabro;
+			productReference = 0167AEC314436AFA00C5E882 /* iVagabro.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0167AEBA14436AF900C5E882 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Eustema;
+			};
+			buildConfigurationList = 0167AEBD14436AF900C5E882 /* Build configuration list for PBXProject "iVagabro" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0167AEB814436AF900C5E882;
+			productRefGroup = 0167AEC414436AFA00C5E882 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0167AEC214436AFA00C5E882 /* iVagabro */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0167AEC114436AFA00C5E882 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0167AED214436AFA00C5E882 /* InfoPlist.strings in Resources */,
+				0167AEDB14436AFA00C5E882 /* MainWindow.xib in Resources */,
+				0167AEE414436AFA00C5E882 /* FirstView.xib in Resources */,
+				0167AEE714436AFA00C5E882 /* SecondView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0167AEBF14436AFA00C5E882 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0167AED414436AFA00C5E882 /* main.m in Sources */,
+				0167AED814436AFA00C5E882 /* iVagabroAppDelegate.m in Sources */,
+				0167AEDE14436AFA00C5E882 /* FirstViewController.m in Sources */,
+				0167AEE114436AFA00C5E882 /* SecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		0167AED014436AFA00C5E882 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0167AED114436AFA00C5E882 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		0167AED914436AFA00C5E882 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0167AEDA14436AFA00C5E882 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		0167AEE214436AFA00C5E882 /* FirstView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0167AEE314436AFA00C5E882 /* en */,
+			);
+			name = FirstView.xib;
+			sourceTree = "<group>";
+		};
+		0167AEE514436AFA00C5E882 /* SecondView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0167AEE614436AFA00C5E882 /* en */,
+			);
+			name = SecondView.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0167AEE814436AFA00C5E882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		0167AEE914436AFA00C5E882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0167AEEB14436AFA00C5E882 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iVagabro/iVagabro-Prefix.pch";
+				INFOPLIST_FILE = "iVagabro/iVagabro-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		0167AEEC14436AFA00C5E882 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iVagabro/iVagabro-Prefix.pch";
+				INFOPLIST_FILE = "iVagabro/iVagabro-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0167AEBD14436AF900C5E882 /* Build configuration list for PBXProject "iVagabro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0167AEE814436AFA00C5E882 /* Debug */,
+				0167AEE914436AFA00C5E882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0167AEEA14436AFA00C5E882 /* Build configuration list for PBXNativeTarget "iVagabro" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0167AEEB14436AFA00C5E882 /* Debug */,
+				0167AEEC14436AFA00C5E882 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0167AEBA14436AF900C5E882 /* Project object */;
+}
