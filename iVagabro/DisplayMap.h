@@ -3,7 +3,7 @@
 //  iVagabro
 //
 //  Created by Francesco Ficetola on 13/11/11.
-//  Copyright 2015 lubannaiuolu. All rights reserved.
+//  Copyright 2013 lubannaiuolu. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
