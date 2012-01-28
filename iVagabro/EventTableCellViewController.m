@@ -3,7 +3,7 @@
 //  iVagabro
 //
 //  Created by Francesco Ficetola on 26/10/11.
-//  Copyright 2011 lubannaiuolu. All rights reserved.
+//  Copyright 2012 lubannaiuolu. All rights reserved.
 //
 
 #import "EventTableCellViewController.h"
