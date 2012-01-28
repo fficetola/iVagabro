@@ -1,5 +1,5 @@
 #import "TabBarController.h"
-#import "CatalogController.h"
+#import "iVagabroAppDelegate.h"
 #import "Utils.h"
 
 @implementation TabBarController
@@ -13,8 +13,11 @@
 }
 
 -(BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    
-    // Always returning YES means the view will rotate to accomodate any orientation.
+     
+    if([self selectedIndex] == 0 || [self selectedIndex] == 2  || [self selectedIndex] == 3 || [self selectedIndex] == 4){
+        return (interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown ||
+                interfaceOrientation == UIInterfaceOrientationPortrait);
+    }
     
     return YES;
 }
