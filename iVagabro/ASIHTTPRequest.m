@@ -1214,6 +1214,8 @@ static NSOperationQueue *sharedQueue = nil;
             CFReadStreamSetProperty((CFReadStreamRef)[self readStream], 
                                     kCFStreamPropertySSLSettings, 
                                     (CFTypeRef)sslProperties);
+            
+            [sslProperties release];
         } 
         
         // Tell CFNetwork to use a client certificate

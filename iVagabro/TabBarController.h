@@ -1,4 +1,4 @@
-#import "Three20/Three20.h"
+#import <UIKit/UIKit.h>
 
 @interface TabBarController : UITabBarController {
 }

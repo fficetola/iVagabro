@@ -7,7 +7,6 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import "RegexKitLite.h"
 #import "Place.h"
 #import "PlaceMark.h"
 

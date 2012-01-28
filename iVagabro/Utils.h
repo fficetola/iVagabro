@@ -3,7 +3,7 @@
 //  LuBannApp
 //
 //  Created by Francesco Ficetola on 18/09/11.
-//  Copyright 2011 Eustema. All rights reserved.
+//  Copyright 2011 lubannaiuolu. All rights reserved.
 //
 
 
@@ -15,6 +15,7 @@
 + (void) testConnectionThread;
 + (UIColor *)colorWithHex:(long)hexColor alpha:(float)opacity;
 + (BOOL) NSStringIsValidEmail:(NSString *)checkString;
++ (BOOL) IsEmpty:(NSString *)input;
 @end
 
 

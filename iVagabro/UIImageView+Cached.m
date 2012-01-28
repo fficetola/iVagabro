@@ -39,7 +39,8 @@
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		NSError *err = nil;
 		
-		newImage = [[UIImage imageWithData: [NSData dataWithContentsOfURL:url options:0 error:&err]] retain];
+		newImage = [UIImage imageWithData: [NSData dataWithContentsOfURL:url options:0 error:&err]];
+        //newImage = [[UIImage imageWithData: [NSData dataWithContentsOfURL:url options:0 error:&err]]retain];
 		if( newImage )
 		{
 			// check to see if we should flush existing cached items before adding this new item
@@ -56,6 +57,8 @@
 
 	if( newImage )
 		[self performSelectorOnMainThread:@selector(setImage:) withObject:newImage waitUntilDone:NO];
+  
+
 }
 
 // Methods to load and cache an image from a URL on a separate thread

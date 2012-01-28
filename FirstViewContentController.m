@@ -3,7 +3,7 @@
 //  iVagabro
 //
 //  Created by Francesco Ficetola on 25/10/11.
-//  Copyright 2011 Eustema. All rights reserved.
+//  Copyright 2011 lubannaiuolu. All rights reserved.
 //
 
 #import "FirstViewContentController.h"
@@ -12,6 +12,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+    
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization

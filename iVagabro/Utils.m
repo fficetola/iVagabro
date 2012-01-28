@@ -3,7 +3,7 @@
 //  LuBannApp
 //
 //  Created by Francesco Ficetola on 18/09/11.
-//  Copyright 2011 Eustema. All rights reserved.
+//  Copyright 2011 lubannaiuolu. All rights reserved.
 //
 
 
@@ -139,6 +139,14 @@
     NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
     return [emailTest evaluateWithObject:checkString];
+}
+
++(BOOL) IsEmpty: (NSString *) input {
+    return input == nil
+    || ([input respondsToSelector:@selector(length)]
+        && [(NSData *)input length] == 0)
+    || ([input respondsToSelector:@selector(count)]
+        && [(NSArray *)input count] == 0);
 }
 
 

@@ -3,12 +3,15 @@
 //  iVagabro
 //
 //  Created by Francesco Ficetola on 25/10/11.
-//  Copyright 2011 Eustema. All rights reserved.
+//  Copyright 2011 lubannaiuolu. All rights reserved.
 //
 
 #import "ThirdViewContentController.h"
 
+
 @implementation ThirdViewContentController
+
+@synthesize scrollView,contentView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,11 +32,14 @@
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    // set the scrollview content and configure appropriately
+    [self.scrollView addSubview:self.contentView];
+    self.scrollView.contentSize = self.contentView.bounds.size;
 }
+
 
 - (void)viewDidUnload
 {
@@ -47,5 +53,13 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
+
+
+- (void) dealloc{
+    [super dealloc];
+    [contentView release];
+    [scrollView release];
+}
+
 
 @end

@@ -6,6 +6,8 @@
 //
 
 #import "MapView.h"
+#import "RegexKitLite.h"
+
 
 @interface MapView()
 
@@ -84,10 +86,18 @@
 	NSString* apiUrlStr = [NSString stringWithFormat:@"http://maps.google.com/maps?dirflg=h&output=dragdir&saddr=%@&daddr=%@", saddr, daddr];
 	NSURL* apiUrl = [NSURL URLWithString:apiUrlStr];
 	NSLog(@"api url: %@", apiUrl);
-	NSString *apiResponse = [NSString stringWithContentsOfURL:apiUrl];
+    
+    NSError *error =  nil;
+	NSString *apiResponse = [NSString stringWithContentsOfURL:apiUrl encoding:NSASCIIStringEncoding error:&error];
+
 	NSString* encodedPoints = [apiResponse stringByMatching:@"points:\\\"([^\\\"]*)\\\"" capture:1L];
 	
-	return [self decodePolyLine:[encodedPoints mutableCopy]];
+    NSMutableString *encodedPointsMutable = [[NSMutableString alloc] initWithString:encodedPoints];
+    
+	NSArray * array = [self decodePolyLine:encodedPointsMutable];
+    [encodedPointsMutable release];
+    
+    return array;
 }
 
 -(void) centerMap {
@@ -117,6 +127,8 @@
 	[mapView setRegion:region animated:YES];
 }
 
+
+
 -(void) showRouteFrom: (Place*) f to:(Place*) t {
 	
 	if(routes) {
@@ -137,14 +149,17 @@
 }
 
 -(void) updateRouteView {
+    CGColorSpaceRef colorspace = CGColorSpaceCreateDeviceRGB();
+    
 	CGContextRef context = 	CGBitmapContextCreate(nil, 
 												  routeView.frame.size.width, 
 												  routeView.frame.size.height, 
 												  8, 
 												  4 * routeView.frame.size.width,
-												  CGColorSpaceCreateDeviceRGB(),
+                                                  colorspace,
 												  kCGImageAlphaPremultipliedLast);
-	
+	CGColorSpaceRelease(colorspace);
+    
 	CGContextSetStrokeColorWithColor(context, lineColor.CGColor);
 	CGContextSetRGBFillColor(context, 0.0, 0.0, 1.0, 1.0);
 	CGContextSetLineWidth(context, 3.0);
@@ -164,9 +179,9 @@
 	
 	CGImageRef image = CGBitmapContextCreateImage(context);
 	UIImage* img = [UIImage imageWithCGImage:image];
-	
 	routeView.image = img;
 	CGContextRelease(context);
+    CGImageRelease(image);
 
 }
 

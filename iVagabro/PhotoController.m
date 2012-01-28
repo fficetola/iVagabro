@@ -1,36 +1,35 @@
-#import "PhotoTest2Controller.h"
+#import "PhotoController.h"
 #import "MockPhotoSource.h"
 #import "Utils.h"
 
 
-@implementation PhotoTest2Controller
+@implementation PhotoController
 
 @synthesize listaPhotos;
 @synthesize appDelegate;
-@synthesize idSection;
-@synthesize nameSection;
+@synthesize idSelection;
+@synthesize nameSelection;
 
 - (void)viewDidLoad {
 	
 	//url della directory sul server con le foto
-	NSString *directoryPhotos = @"http://www.lubannaiuolu.net/mkportal/modules/gallery/album/";
-	NSString *directoryThumbs = @"http://www.lubannaiuolu.net/mkportal/modules/gallery/album/";
+	//NSString *directoryPhotos = @"http://www.lubannaiuolu.net/mkportal/modules/gallery/album/";
+	//NSString *directoryThumbs = @"http://www.lubannaiuolu.net/mkportal/modules/gallery/album/";
 	
-    appDelegate = (LuBannAppAppDelegate *)[[UIApplication sharedApplication] delegate];
-    idSection = appDelegate.idSection;
+    appDelegate = (iVagabroAppDelegate *)[[UIApplication sharedApplication] delegate];
+    idSelection = appDelegate.idSelection;
     
-    NSLog(@"VIEW DID LOAD IN PHOTOCONTROLLER - IDSECTION: %@.", idSection);
-
-	
 	//concateno alla URL il parametro idBoard
-	NSString *indirizzo = @"http://www.lubannaiuolu.net/lubannapp/getPhotosInSection.php?id_section=";
-	indirizzo = [indirizzo stringByAppendingString:idSection];
-	
-	//crea un oggetto URL
+	NSString *indirizzo = @"http://www.lubannaiuolu.net/ivagabro/getPhotosInSection";
+	indirizzo = [indirizzo stringByAppendingString:idSelection];
+    indirizzo = [indirizzo stringByAppendingString:@".plist"];
+    
+  	//crea un oggetto URL
 	//NSURL *url = [NSURL URLWithString:indirizzo];
 	
 	//prendo i dati dal server
 	//listaPhotos = [[NSMutableArray alloc]initWithContentsOfURL:url];
+    
     listaPhotos = [[NSMutableArray alloc]initWithArray:[Utils downloadPlist:indirizzo]];
 
 	
@@ -41,32 +40,13 @@
 	//itero sul singolo elemento presente nella lista foto
 	for (NSDictionary *element in listaPhotos) {
 		
-        NSString *prefixThumb = @"t_";
-		NSString *filePhoto = [element objectForKey:@"file"];
-		NSString *titolo = [element objectForKey:@"name"];
+        NSString *prefixThumb = [element objectForKey:@"thumbUrl"];
+		NSString *filePhoto = [element objectForKey:@"photoUrl"];
+		NSString *titolo = [element objectForKey:@"title"];
 		
-		NSString *pathPhoto = [directoryPhotos stringByAppendingString:filePhoto];
+		NSString *pathPhoto = filePhoto;
 		
-			
-		//controllo l'estensione: se è png devo trovare il thumb in jpg
-		NSArray *filenameSplitted = [filePhoto componentsSeparatedByString: @"."];
-		NSString *filenameWithoutExtension = [filenameSplitted objectAtIndex: 0];
-		NSString *extensionPhoto = [filenameSplitted objectAtIndex: 1];
-		
-		NSString *fileThumb = nil;
-        
-       
-        if([extensionPhoto isEqualToString:@"png"] || [extensionPhoto isEqualToString:@"gif"] || [extensionPhoto isEqualToString:@"bmp"]){
-			fileThumb = [[NSString alloc] initWithString:[[prefixThumb stringByAppendingString:filenameWithoutExtension] stringByAppendingString: @".jpg"]];
-		}
-		else{
-			fileThumb = [[NSString alloc] initWithString:[prefixThumb stringByAppendingString:filePhoto]];
-		}
-		 
-		
-		
-		NSMutableString *pathThumb = [[NSMutableString alloc] initWithString:[directoryThumbs stringByAppendingString:fileThumb]];	
-		
+		NSMutableString *pathThumb = [[NSMutableString alloc] initWithString:prefixThumb];
         
 		int width = [[element objectForKey:@"width"]intValue];
 		int height = [[element objectForKey:@"height"]intValue];
@@ -104,274 +84,14 @@
 		[photosArray2 addObject:mockPhoto]; 
 		
 		//[thumb release];
-        [fileThumb release];
+       // [fileThumb release];
         [pathThumb release];
 		
         
 	}
 	
-	//[array addObject:@ "Hello" ]; 
-	
-	
- 
- /*  NSMutableArray* photosArray =[[NSMutableArray alloc] initWithObjects:
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://www.lubannaiuolu.net/mkportal/modules/gallery/album/a_3522.png"
-	   smallURL:@"http://www.lubannaiuolu.net/mkportal/modules/gallery/album/a_3522.png"
-	   size:CGSizeMake(460, 633)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://www.lubannaiuolu.net/mkportal/modules/gallery/album/a_3522.png"
-	   smallURL:@"http://www.lubannaiuolu.net/mkportal/modules/gallery/album/a_3522.png"
-	   size:CGSizeMake(460, 633)
-	   caption:@"These are the wood tiles that we had installed after the accident."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123.jpg?v=0"
-	   smallURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"A hike."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e_t.jpg"
-	   size:CGSizeMake(383, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4_t.jpg"
-	   size:CGSizeMake(407, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889_t.jpg"
-	   size:CGSizeMake(500, 406)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1004/3174172875_1e7a34ccb7.jpg"
-	   smallURL:@"http://farm2.static.flickr.com/1004/3174172875_1e7a34ccb7_t.jpg"
-	   size:CGSizeMake(500, 372)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2300/2179038972_65f1e5f8c4.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2300/2179038972_65f1e5f8c4_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3246/2957580101_33c799fc09_o.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3246/2957580101_d63ef56b15_t.jpg"
-	   size:CGSizeMake(960, 1280)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3444/3223645618_13fe36887a_o.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3444/3223645618_f5e2fa7fea_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"These are the wood tiles that we had installed after the accident."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123.jpg?v=0"
-	   smallURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"A hike."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e_t.jpg"
-	   size:CGSizeMake(383, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4_t.jpg"
-	   size:CGSizeMake(407, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889_t.jpg"
-	   size:CGSizeMake(500, 406)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1004/3174172875_1e7a34ccb7.jpg"
-	   smallURL:@"http://farm2.static.flickr.com/1004/3174172875_1e7a34ccb7_t.jpg"
-	   size:CGSizeMake(500, 372)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2300/2179038972_65f1e5f8c4.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2300/2179038972_65f1e5f8c4_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3246/2957580101_33c799fc09_o.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3246/2957580101_d63ef56b15_t.jpg"
-	   size:CGSizeMake(960, 1280)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3444/3223645618_13fe36887a_o.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3444/3223645618_f5e2fa7fea_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"These are the wood tiles that we had installed after the accident."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123.jpg?v=0"
-	   smallURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"A hike."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e_t.jpg"
-	   size:CGSizeMake(383, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4_t.jpg"
-	   size:CGSizeMake(407, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889_t.jpg"
-	   size:CGSizeMake(500, 406)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1004/3174172875_1e7a34ccb7.jpg"
-	   smallURL:@"http://farm2.static.flickr.com/1004/3174172875_1e7a34ccb7_t.jpg"
-	   size:CGSizeMake(500, 372)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2300/2179038972_65f1e5f8c4.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2300/2179038972_65f1e5f8c4_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3246/2957580101_33c799fc09_o.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3246/2957580101_d63ef56b15_t.jpg"
-	   size:CGSizeMake(960, 1280)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3444/3223645618_13fe36887a_o.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3444/3223645618_f5e2fa7fea_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"These are the wood tiles that we had installed after the accident."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123.jpg?v=0"
-	   smallURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"A hike."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e_t.jpg"
-	   size:CGSizeMake(383, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4_t.jpg"
-	   size:CGSizeMake(407, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889_t.jpg"
-	   size:CGSizeMake(500, 406)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1004/3174172875_1e7a34ccb7.jpg"
-	   smallURL:@"http://farm2.static.flickr.com/1004/3174172875_1e7a34ccb7_t.jpg"
-	   size:CGSizeMake(500, 372)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2300/2179038972_65f1e5f8c4.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2300/2179038972_65f1e5f8c4_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3246/2957580101_33c799fc09_o.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3246/2957580101_d63ef56b15_t.jpg"
-	   size:CGSizeMake(960, 1280)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3444/3223645618_13fe36887a_o.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3444/3223645618_f5e2fa7fea_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"These are the wood tiles that we had installed after the accident."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123.jpg?v=0"
-	   smallURL:@"http://farm2.static.flickr.com/1124/3164979509_bcfdd72123_t.jpg"
-	   size:CGSizeMake(320, 480)
-	   caption:@"A hike."] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3106/3203111597_d849ef615b_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3099/3164979221_6c0e583f7d_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2.jpg?v=0"
-	   smallURL:@"http://farm4.static.flickr.com/3081/3164978791_3c292029f2_t.jpg"
-	   size:CGSizeMake(320, 480)] autorelease],
-	 
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e.jpg"
-	   smallURL:@"http://farm3.static.flickr.com/2358/2179913094_3a1591008e_t.jpg"
-	   size:CGSizeMake(383, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3162/2677417507_e5d0007e41_t.jpg"
-	   size:CGSizeMake(391, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3334/3334095096_ffdce92fc4_t.jpg"
-	   size:CGSizeMake(407, 500)] autorelease],
-	 [[[MockPhoto alloc]
-	   initWithURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889.jpg"
-	   smallURL:@"http://farm4.static.flickr.com/3118/3122869991_c15255d889_t.jpg"
-	   size:CGSizeMake(500, 406)] autorelease],
-	 nil
-	 ];
-	
-  	*/
 
-	NSMutableString *titolo = nameSection;	
+	NSMutableString *titolo = appDelegate.nameSelection;	
 	
   self.photoSource = [[[MockPhotoSource alloc]
     initWithType:MockPhotoSourceNormal
@@ -393,6 +113,8 @@
   
     //[titolo release];
 	//[photosArray2 release];
+    
+  [UIApplication sharedApplication].networkActivityIndicatorVisible = NO; 
 }
 
 

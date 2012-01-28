@@ -3,7 +3,7 @@
 //  iVagabro
 //
 //  Created by Francesco Ficetola on 10/10/11.
-//  Copyright 2011 Eustema. All rights reserved.
+//  Copyright 2011 lubannaiuolu. All rights reserved.
 //
 
 #import "iVagabroAppDelegate.h"
@@ -11,7 +11,8 @@
 @implementation iVagabroAppDelegate
 
 @synthesize window = _window;
-@synthesize tabBarController = _tabBarController;
+//@synthesize tabBarController = _tabBarController;
+@synthesize tabBarController;
 @synthesize idSelection;
 @synthesize nameSelection;
 @synthesize urlSelection;
@@ -22,7 +23,9 @@
 {
     // Override point for customization after application launch.
     // Add the tab bar controller's current view as a subview of the window
-    self.window.rootViewController = self.tabBarController;
+    //self.window.rootViewController = self.tabBarController;
+    //[self.window makeKeyAndVisible];
+    [self.window addSubview:tabBarController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -69,7 +72,7 @@
 - (void)dealloc
 {
     [_window release];
-    [_tabBarController release];
+    [tabBarController release];
     [idSelection release];
     [nameSelection release];
     [urlSelection release];
