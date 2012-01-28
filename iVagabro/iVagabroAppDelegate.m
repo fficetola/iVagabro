@@ -12,6 +12,11 @@
 
 @synthesize window = _window;
 @synthesize tabBarController = _tabBarController;
+@synthesize idSelection;
+@synthesize nameSelection;
+@synthesize urlSelection;
+@synthesize dictionarySelection;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -65,6 +70,10 @@
 {
     [_window release];
     [_tabBarController release];
+    [idSelection release];
+    [nameSelection release];
+    [urlSelection release];
+    [dictionarySelection release];
     [super dealloc];
 }
 
