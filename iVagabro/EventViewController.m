@@ -3,7 +3,7 @@
 //  iVagabro
 //
 //  Created by Francesco Ficetola on 12/11/11.
-//  Copyright 2011 lubannaiuolu. All rights reserved.
+//  Copyright 2012 lubannaiuolu. All rights reserved.
 //
 
 #import "EventViewController.h"
