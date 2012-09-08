@@ -34,6 +34,8 @@
                                  [UIImage imageNamed:@"home13.jpg"],
                                  [UIImage imageNamed:@"home14.jpg"],
                                  [UIImage imageNamed:@"home15.jpg"],
+                                 [UIImage imageNamed:@"home16.jpg"],
+                                 [UIImage imageNamed:@"home17.jpg"],
                                  nil];
     imageView.animationDuration = 60.0f;
     imageView.animationRepeatCount = 0;

@@ -113,6 +113,8 @@
 		01CAFDEC148C0FF10041F119 /* PostitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01CAFDEA148C0FEE0041F119 /* PostitViewController.m */; };
 		01CAFDED148C0FF10041F119 /* PostitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01CAFDEB148C0FF00041F119 /* PostitView.xib */; };
 		01CAFDEF148C14530041F119 /* postit.png in Resources */ = {isa = PBXBuildFile; fileRef = 01CAFDEE148C14530041F119 /* postit.png */; };
+		01CE44B41583C67D00F5A777 /* home16.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01CE44B01583C53500F5A777 /* home16.jpg */; };
+		01CE44B51583C68C00F5A777 /* home17.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 01CE44B11583C53500F5A777 /* home17.jpg */; };
 		01F324DF1457261D00F01CB1 /* chisono.png in Resources */ = {isa = PBXBuildFile; fileRef = 01F324DE1457261D00F01CB1 /* chisono.png */; };
 		01F324E31457282100F01CB1 /* ThirdViewContentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01F324E11457282100F01CB1 /* ThirdViewContentController.m */; };
 		01F324E41457282100F01CB1 /* ThirdViewContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01F324E21457282100F01CB1 /* ThirdViewContent.xib */; };
@@ -450,6 +452,8 @@
 		01CAFDEA148C0FEE0041F119 /* PostitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostitViewController.m; sourceTree = "<group>"; };
 		01CAFDEB148C0FF00041F119 /* PostitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostitView.xib; sourceTree = "<group>"; };
 		01CAFDEE148C14530041F119 /* postit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = postit.png; sourceTree = "<group>"; };
+		01CE44B01583C53500F5A777 /* home16.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home16.jpg; sourceTree = "<group>"; };
+		01CE44B11583C53500F5A777 /* home17.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home17.jpg; sourceTree = "<group>"; };
 		01F324DE1457261D00F01CB1 /* chisono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chisono.png; sourceTree = "<group>"; };
 		01F324E01457282100F01CB1 /* ThirdViewContentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThirdViewContentController.h; path = ../ThirdViewContentController.h; sourceTree = "<group>"; };
 		01F324E11457282100F01CB1 /* ThirdViewContentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThirdViewContentController.m; path = ../ThirdViewContentController.m; sourceTree = "<group>"; };
@@ -513,6 +517,8 @@
 			children = (
 				013AC9E31455B394007B0C90 /* home01.jpg */,
 				013AC9E41455B394007B0C90 /* home02.jpg */,
+				01CE44B01583C53500F5A777 /* home16.jpg */,
+				01CE44B11583C53500F5A777 /* home17.jpg */,
 				013AC9E51455B394007B0C90 /* home03.jpg */,
 				013AC9E61455B394007B0C90 /* home04.jpg */,
 				013AC9E71455B394007B0C90 /* home05.jpg */,
@@ -624,11 +630,11 @@
 		019B4C06144B26D100CBFBA1 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0167A6EF146EBF0400C35128 /* EventView.xib */,
 				01F6EB231496C4980049764C /* MyBrowserView.xib */,
 				0118C0E5146C7FCA00374C86 /* EventTableCellView.xib */,
 				01CAFDEB148C0FF00041F119 /* PostitView.xib */,
 				0179451C1470531A0064FD7D /* MapView.xib */,
-				0167A6EF146EBF0400C35128 /* EventView.xib */,
 				01794512147037450064FD7D /* ImageView.xib */,
 				01B1203B14585F6D00A09F44 /* TableCellView.xib */,
 				01F324E21457282100F01CB1 /* ThirdViewContent.xib */,
@@ -898,7 +904,7 @@
 		0167AEBA14436AF900C5E882 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = Eustema;
 			};
 			buildConfigurationList = 0167AEBD14436AF900C5E882 /* Build configuration list for PBXProject "iVagabro" */;
@@ -1069,6 +1075,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01CE44B51583C68C00F5A777 /* home17.jpg in Resources */,
+				01CE44B41583C67D00F5A777 /* home16.jpg in Resources */,
 				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
 				0167AED214436AFA00C5E882 /* InfoPlist.strings in Resources */,
 				0167AEDB14436AFA00C5E882 /* MainWindow.xib in Resources */,
@@ -1284,6 +1292,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1296,8 +1305,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "1BE4A6BF-0C34-4236-8073-D9982BEA376F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1BE4A6BF-0C34-4236-8073-D9982BEA376F";
+				PROVISIONING_PROFILE = "74704980-58F2-45E8-A31E-DCD083D88432";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "749658A2-3405-4E19-A850-8283FB3FA09B";
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv6";
 			};
@@ -1315,6 +1324,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Francesco Ficetola";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1327,8 +1337,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "1BE4A6BF-0C34-4236-8073-D9982BEA376F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1BE4A6BF-0C34-4236-8073-D9982BEA376F";
+				PROVISIONING_PROFILE = "99645F1B-C227-4291-B438-6208BF84CFFA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "99645F1B-C227-4291-B438-6208BF84CFFA";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "armv7 armv6";
@@ -1344,7 +1354,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iVagabro/iVagabro-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "iVagabro/iVagabro-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1365,12 +1376,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Francesco Ficetola";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iVagabro/iVagabro-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_THUMB_SUPPORT = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "iVagabro/iVagabro-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1BE4A6BF-0C34-4236-8073-D9982BEA376F";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1BE4A6BF-0C34-4236-8073-D9982BEA376F";
+				PROVISIONING_PROFILE = "99645F1B-C227-4291-B438-6208BF84CFFA";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "99645F1B-C227-4291-B438-6208BF84CFFA";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv6 armv7";
 				WRAPPER_EXTENSION = app;
